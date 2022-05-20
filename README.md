@@ -1,2 +1,2 @@
-# CharRoom
-Make a ChatRoom using Websocket that can realize real-time communicaiton
+# ChatRoom
+This is a project using websocket and nodejs to realize real-time communication.
