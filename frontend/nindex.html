@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200 px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="Enter your Information">
+    <button>Send</button>
+    <!-- show result -->
+    <div></div>
+
+    <script>
+        var input = document.querySelector('input')
+        var button = document.querySelector('button')
+        var div = document.querySelector('div')
+        // demo:WebSocket throught browser
+        // h5
+        //argument:websocket service url
+        var socket = new WebSocket("ws://echo.websocket.org")
+
+        socket.addEventListener('open', function(){
+            div.innerHTML = 'Connect Success'
+        })
+        // send message
+        button.addEventListener('click', function(){
+            var value = input.value
+            socket.send(value)
+        })
+
+        socket.addEventListener('message', function(e){
+            console.log(e)
+        })
+
+        socket.addEventListener('close', function(){
+            div.innerHTML = 'Disconnect'
+        })
+    </script>
+</body>
+</html>
